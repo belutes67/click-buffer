@@ -49,7 +49,7 @@ class $modify(CBGameLayer, GJBaseGameLayer) {
         GJBaseGameLayer::handleButton(down, button, p1);
     }
 
-    void processCommands(float dt) {
+    void processCommands(float dt, bool isHalfTick, bool isLastTick) {
         if (on() && PlayLayer::get()) {
             if (g.flash > 0) g.flash--;
             if (g.releaseNext) {
@@ -76,7 +76,7 @@ class $modify(CBGameLayer, GJBaseGameLayer) {
             }
             updateIndicator();
         }
-        GJBaseGameLayer::processCommands(dt);
+        GJBaseGameLayer::processCommands(dt, isHalfTick, isLastTick);
     }
 };
 
